@@ -1,0 +1,76 @@
+<script>
+function buildStatement()
+{
+	document.getElementById("p").innerHTML = "";	
+    var TEAM = document.autoStatement.team.value;
+    var DATE = document.autoStatement.dateIncident.value;
+    var TIME = document.autoStatement.timeIncident.value;
+    var PROBLEM = document.autoStatement.problem.value;
+    var NEXTSTEPS = document.autoStatement.nextsteps.value;
+    
+   if (TEAM == "") {
+       alert("Please enter a team name");
+       return false;
+   } 
+
+   document.getElementById('teamID').innerHTML = "<b>Team:</b> " + TEAM;
+   document.getElementById('dateIncidentID').innerHTML = "<b>Date of incident:</b> " + DATE;
+   document.getElementById('timeIncidentID').innerHTML = "<b>Time of incident:</b> " + TIME;
+   document.getElementById('problemID').innerHTML = "<b>Problem:</b> " + PROBLEM;
+   document.getElementById('nextstepsID').innerHTML = "<b>Next Steps:</b> " + NEXTSTEPS;
+
+
+
+}
+function clearStatement()
+{
+	document.autoStatement.team.value = "";
+	document.autoStatement.dateIncident.value = "";
+	document.autoStatement.timeIncident.value = "";
+	document.autoStatement.problem.value = "";
+	document.autoStatement.nextsteps.value = "";
+    document.getElementById('teamID').innerHTML = "";
+    document.getElementById('dateIncidentID').innerHTML = "";
+    document.getElementById('timeIncidentID').innerHTML = "";
+    document.getElementById('problemID').innerHTML = "";
+    document.getElementById('nextstepsID').innerHTML = "";
+}
+</script>
+</head>   
+<body>
+    <h1>Dynamic Creation Help</h1>
+        <p>  
+       <form name='autoStatement'>
+           <table> 
+                <tr>
+                    <td>Team Name Impacted</td>
+                    <td style="text-align:center"><input type = 'text' name='team' onfocus="this.value=''" value = '#1 Team'></td>           
+                    <td style="text-align:left">Great Team, Sour Team</td>          
+                </tr>
+                <tr>
+                    <td style="text-align:center"><input type = 'text' name='dateIncident' onfocus="this.value=''" value = '03/12/2021'></td>           
+                    <td style="text-align:left">Jan 2nd, yesterday, today</td>          
+                </tr>
+                <tr>
+                    <td style="text-align:center"><input type = 'text' name='timeIncident' onfocus="this.value=''" value = '11:00AM EST'></td>           
+                    <td style="text-align:left">10:00PM EST, 12:00AM PST</td>          
+                </tr>
+                    <td style="text-align:center"><input type = 'text' name='problem' onfocus="this.value=''" value = 'No internet'></td>           
+                    <td style="text-align:left">No dial tone, No electricity to socket 1</td>          
+                </tr>
+                <tr>
+                    <td style="text-align:center"><input type = 'text' name='nextsteps' onfocus="this.value=''" value = 'Get internet back on ASAP'></td>           
+                    <td style="text-align:left">No more frequent outages, Join zoom bridge xyz</td>          
+                </tr>
+           </table>
+       </form>
+       <p><input type='submit' value='Generate' onclick='buildStatement(); return false'></p>
+	   <p><input type='submit' value='Clear' onclick='clearStatement(); return false'></p>
+       </p>
+       <p id="p">
+       <p style="display:inline" id='teamID'></p><br>
+       <p style="display:inline" id='dateIncidentID'></p><br>
+       <p style="display:inline" id='timeIncidentID'></p><br>
+       <p style="display:inline" id='problemID'></p><br>
+       <p style="display:inline" id='nextstepsID'></p><br>
+       </p>
